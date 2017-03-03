@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table border="1" width="200" height="100" style="text-align:center">
+	<tr>
+		<td>哈哈</td>
+		<td>哈哈</td>
+		<td>哈哈</td>
+	</tr>
+	<tr>
+		<td>哈哈</td>
+		<td>哈哈</td>
+		<td>哈哈</td>
+	</tr>
+</table>
+<form action="index.php" method="post">
+	<input type="text" name="nickname" placeholder="sss">
+	<input type="submit">
+</form>
+<!-- <div id="msg"></div>
+<input  type="text" id="content">
+<button  onclick="websocket.send( document.getElementById('content').value )">发送</button> -->
+<!-- div id="msg"></div>
+<input type="text" id="text" class="aa" value="1" onblur="aa(this)">
+<input type="text" id="text" class="aa" value="2" onblur="aa(this)">
+<input type="text" id="text" class="aa" value="3" onblur="aa(this)"> -->
+<!-- <input type="submit" value="发送数据" class="bb"> -->
+<ul>
+	<li>1</li>
+	<li>1</li>
+	<li>1</li>
+	<li>1</li>
+	<li>1</li>
+</ul>
+</body>
+<script type="text/javascript" src="jquery-3.1.1.min.js"></script>
+<script>
+	
+	var tmp = {}
+	tmp.token = "58a5056b38347"
+	tmp.data = []
+	data_tmp1 = data_tmp2 = {}
+	data_tmp1.goods_id = "245"
+	tmp.data.push(data_tmp1)
+	data_tmp2.goods_id = "242"
+	tmp.data.push(data_tmp2)
+	console.log(tmp)
+	$.post("index.php",{data:tmp},function(){
+
+	})
+
+	// test();
+	// test = function(){
+	// 	console.log(1);
+	// }
+	// test();
+	// function test(){
+	// 	console.log(2);
+	// }
+
+	// $(function(){
+	// 	$("ul").append("<li>2</li>")
+	// })
+	
+	// var msg = document.getElementById("msg");
+ //    var wsServer = 'ws://127.0.0.1:9502';
+	// var websocket = new WebSocket(wsServer);
+	// websocket.onopen = function (evt) {
+	// 	websocket.send("嗨，我们连上了！")
+	// 	msg.innerHTML = websocket.readyState;
+	//     // console.log("Connected to WebSocket server.");
+	// };
+
+	// websocket.onclose = function (evt) {
+	//     console.log("Disconnected");
+	// };
+
+	// websocket.onmessage = function (evt) {
+	// 	msg.innerHTML += evt.data +'<br>';
+	//     console.log('服务器回应: ' + evt.data);
+	// };
+
+	// websocket.onerror = function (evt, e) {
+	//     console.log('Error occured: ' + evt.data);
+	// };
+</script>
+</html>
