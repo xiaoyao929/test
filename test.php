@@ -4,4 +4,5 @@
 	$count = $redis->llen("goods_store");
 	echo $count;
 	die;
+	//sss
 
