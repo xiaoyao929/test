@@ -1,5 +1,40 @@
 <?php
 
+set_time_limit(0);  
+function MakePropertyValue($name,$value,$osm){  
+    $oStruct = $osm->Bridge_GetStruct("com.sun.star.beans.PropertyValue");  
+    $oStruct->Name = $name;  
+    $oStruct->Value = $value;  
+    return $oStruct;  
+}  
+function word2pdf($doc_url, $output_url){  
+    $osm = new COM("com.sun.star.ServiceManager") or die ("Please be sure that OpenOffice.org is installed.n");  
+    $args = array(MakePropertyValue("Hidden",true,$osm));  
+    $oDesktop = $osm->createInstance("com.sun.star.frame.Desktop");  
+    $oWriterDoc = $oDesktop->loadComponentFromURL($doc_url,"_blank", 0, $args);  
+    $export_args = array(MakePropertyValue("FilterName","writer_pdf_Export",$osm));  
+    $oWriterDoc->storeToURL($output_url,$export_args);  
+    $oWriterDoc->close(true);  
+}  
+$doc_file = "test.docx";  
+$pdf_file = "test.docx.pdf";  
+word2pdf($doc_file,$pdf_file);  
+die;
+
+$aa =[
+    ["ss","33"],
+    ["33","55"]
+];
+$bb =[
+    ["sdd","55"],
+    ["555","---"]
+];
+var_dump(array_merge($aa,$bb));die;
+
+echo 77;
+echo "\n";
+//var_dump(get_loaded_extensions());
+//die;
 // $store = 100;
 // $redis = new Redis();
 // $con = $redis->connect('127.0.0.1',6379);
@@ -73,8 +108,8 @@ function quickSort($arr){
     return array_merge($left,array($base),$right);
 }
 
-var_dump(quickSort($arr));
-die;
+//var_dump(quickSort($arr));
+//die;
 
 
 
@@ -85,42 +120,42 @@ die;
 
 
 
-echo strlen("你好");
-// $pattern = "/^1[34578]{1}\d{9}$/";
-$pattern = "/^.*\w{1,}\/\d{1,}$/";
-$pattern = "/^.+@.*.\w{2,3} $/";
-preg_match_all($pattern, "http://www.yunspace.com.cn/site/6",$arr);
-var_dump($arr);
-
-
-
-//将数组从小到大排序
-
-$arr=array(1,43,54,62,21,66,32,78,36,76,39);  
-
-//1.冒泡排序
-function bubbleSort($arr){
-    $len = count($arr);
-    //循环次数
-    for($i=1;$i<$len;$i++){
-        //每次循环都两两比较，每次循环都会把最大的值放到最后
-        for($j=0;$j<$len-$i;$j++){
-            if($arr[$j] > $arr[$j+1] ){
-                $tmp = $arr[$j];
-                $arr[$j] = $arr[$j+1];
-                $arr[$j+1] = $tmp;
-            }
-        }
-    }
-    return $arr;
-}
-
-
-
-
-
-var_dump(bubbleSort($arr));
-die;
+//echo strlen("你好");
+//// $pattern = "/^1[34578]{1}\d{9}$/";
+//$pattern = "/^.*\w{1,}\/\d{1,}$/";
+//$pattern = "/^.+@.*.\w{2,3} $/";
+//preg_match_all($pattern, "http://www.yunspace.com.cn/site/6",$arr);
+//var_dump($arr);
+//
+//
+//
+////将数组从小到大排序
+//
+//$arr=array(1,43,54,62,21,66,32,78,36,76,39);
+//
+////1.冒泡排序
+//function bubbleSort($arr){
+//    $len = count($arr);
+//    //循环次数
+//    for($i=1;$i<$len;$i++){
+//        //每次循环都两两比较，每次循环都会把最大的值放到最后
+//        for($j=0;$j<$len-$i;$j++){
+//            if($arr[$j] > $arr[$j+1] ){
+//                $tmp = $arr[$j];
+//                $arr[$j] = $arr[$j+1];
+//                $arr[$j+1] = $tmp;
+//            }
+//        }
+//    }
+//    return $arr;
+//}
+//
+//
+//
+//
+//
+//var_dump(bubbleSort($arr));
+//die;
 
 
 
